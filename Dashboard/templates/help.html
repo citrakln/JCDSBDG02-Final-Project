@@ -1,0 +1,108 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!doctype html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=EB+Garamond&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <style type="text/css">
+      body {
+          background-image: url(static/images/ForHelp.jpg);
+          background-size: cover;
+          background-attachment: fixed;
+      }
+  </style>
+
+</head>
+<body>
+  <div class="container newbox">
+    <p class="display-4" style="color: darkslategrey;"><b>How to become a top Airbnb host! </b></p>
+    <p class="h6 lead" style="color: darkslategrey;"> Singapore is one of the most popular destination in South East Asian, and the number of visitors keep increasing every year. Therefore if there is an empty property in Singapore, then becoming  an Airbnb host can be considered a good investment.</p>
+    <br>
+    <br>
+    <p class="h6 lead" style="color: darkslategrey;">  Based on the analysis of Airbnb dataset that was scraped on June 2019. There are some things that we can improve to become a good host and to get a good review from the guest.
+        In this case, the listing is divided into  two group. The first group is top performer and the others is the low performer. The top performer is defined as the performer that has score review larger than quantile 80% or larger than 91.41.
+        The low performer is defined as the performer that has score review lower than quantile 20% or lower than 88.1. 
+    The graphic below show the number of listing versus the ranking of listing based on review scores. The red area represents the top performer, and the green area represents the low performer.</p>
+    <div class="chart mt-1" id="dist-type2">
+        <img src="static/images/toplowcountlisting.png" width="600" height="300"> 
+    </div>
+    <p>
+        <b style="color: darkslategrey;"> And, these parameters are  : </b>
+    </p>
+    <p class="h6 lead" style="color: darkslategrey;">
+        <dl>
+            <dt>- The host is superhost </dt>
+            <dd> <p> For a newcomer in Airbnb, it might be difficult to be a superhost in a short time. The requirement to be a superhost can be seen in  <a href="https://www.airbnb.com/help/article/829/how-do-i-become-a-superhost">this link</a>. Usually, a guest will chose a superhost if there are 2 options of listing with the same price and the same housing condition.</p> 
+                <p>                     
+                    <div class="chart mt-1" id="dist-type2">
+                        <img src="static/images/superhost.png" > 
+                    </div>
+                    
+                </p>
+            </dd>
+            <dt>- Verify your id</dt>
+            <dd>There are many types of host verifications that we can submit to Airbnb, like email, phone, facebook, reviews, jumio, offline_government_id, selfie, government_id, identity_manual. It is better to upload more verifications, because the guest will trust us more.  
+                <p>                     
+                    <div class="chart mt-1" id="dist-type2">
+                        <img src="static/images/identity_reviewed.png" > 
+                    </div>
+                    
+                </p> </dd>
+            <dt>- Fill out all the required data</dt>
+            <dd>It better to fill all the required data. Summary and description are the required data to registered our listing. The guest will read the information before booking a listing.The graph below show that eventhough it is not significant, but the amount of top performer that fill out the required data is larger than the low performer. 
+                <div class="chart mt-1" id="dist-type2">
+                    <img src="static/images/issummary.png" > 
+                    <img src="static/images/isdescription.png" > 
+                </div>
+            </dd>
+            <dt>- Amenities</dt>
+            <dd>Improving the availability of amenities is also a good option to become a top airbnb performer </dd>
+
+            <dt>- Activate the instant booking option</dt>
+            <dd>Instant Book listings don't require approval from the host before they can be booked. As a host, with Instant booking, you do not get to decline the reservation. </dd>
+
+            <dt>- Maintain your review scores</dt>
+            <dd>After becoming an Airbnb host, we should maintaining the review scores. Inside the total review scores, there are other aspects like accuracy, cleanliness, easy check-in, communication,location,value.
+                Except location, we can mantain the other aspects. </dd>
+            
+        </dl>
+    </p>
+  </div>
+  <br>
+  <div class="container newbox">
+    <p class="display-4" style="color: darkslategrey;"><b>How to write a a good listing name! </b></p>
+    <p class="h6 lead" style="color: darkslategrey;">  Below is the world cloud of listing name based on the top performer data that shows the frequence words in top performer listing name.
+        
+        <div class="chart mt-1" id="dist-type2">
+            <img src="static/images/bag_of_names.png" > 
+        </div>
+        The top 5 most frequent number based TfIdfCountVectorizer are room,mrt,near,bedroom,city .This is expected as these words appear in each and every document in our collection. The lower the IDF value of a word, the less unique it is to any particular document.
+    </p>
+    <p>Name is the airbnb listing title that aim to grab the attention of the potential guest. It should be less than 50 characters. These five words are the words that the most of the host want to empathize. </p>
+    <br>
+    <br>
+    </div>
+
+    <div class="container newbox">
+        <p class="display-4" style="color: darkslategrey;"><b>What kind of listing that the host praise from the top performer? </b></p>
+        <p class="h6 lead" style="color: darkslategrey;">  Below is the world cloud of guest comments based on the top performer data that shows the frequence words in guest comments.
+            
+            <div class="chart mt-1" id="dist-type2">
+                <img src="static/images/bag_of_comments.png" > 
+            </div>
+            The top 5 most frequent number based TfIdfCountVectorizer are place,stay,great,clean,room,good,location,nice,apartement,host .This is expected as these words appear in each and every document in our collection. The lower the IDF value of a word, the less unique it is to any particular document.
+        </p>
+        <p>This means a guest wants to stay at a great,clean,good, and nice listing. And they also want to have a good and nice host. </p>
+        <br>
+        <br>
+        </div>
+
+        <div class="container newbox">
+            <p class="display-5" style="color: darkslategrey;"><b>Conclusion : A top host = A good host :) </b></p>
+        </div>
+  
+</body>
+</html>
+    
+    
+{% endblock body %}

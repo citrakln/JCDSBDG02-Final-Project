@@ -1,0 +1,37 @@
+{% extends 'layout.html'%}
+
+{% block body %}
+<!doctype html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body {
+          background-image: url(static/images/ForTable.jpg);
+          background-size: cover;
+          background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+    <table class="table" style="font-size:11px">
+        <thead>
+            <h1>Sample Data</h1>
+            <tr>
+                {% for item in data.columns %}
+                    <th>{{item}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for index, item in data.iterrows() %}
+                <tr>
+                    {%for col in item %}
+                        <td>{{col}}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+{% endblock body %}

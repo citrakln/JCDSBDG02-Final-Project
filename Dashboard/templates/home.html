@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!doctype html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=EB+Garamond&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <style type="text/css">
+      body {
+          background-image: url(static/images/HomeSingapore_background.jpg);
+          background-size: cover;
+          background-attachment: fixed;
+      }
+  </style>
+</head>
+<body>
+    <header class="masthead">
+        <div class="container-fluid h-100">
+          <div class="row h-50 align-items-center">
+            <div class="col-12 text-center">
+                <h1 class="mt-5 mb-0" style="font-family: 'Helvetica Neue', serif; font-size: 20px;color: whitesmoke;">Airbnb Singapore </h1>
+                <h1 class="" style="font-family: 'EB Garamond', serif; font-size: 70px;color: whitesmoke;">Price Prediction</h1>
+                    <a href="/prediction" style="font-family: 'Helvetica Neue', sans-serif;font-size:18px;" class="btn btn-outline-light">Click here to start the prediction</a>
+            </div>
+          </div>
+        </div>
+      </header>
+</body>
+</html>
+
+
+{% endblock body %}

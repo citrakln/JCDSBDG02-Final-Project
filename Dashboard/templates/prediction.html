@@ -1,0 +1,314 @@
+{% extends 'layout.html'%}
+
+{% block body %}
+<!doctype html>
+<!-- Default column sizing form -->
+    <form action="/prediction" method="POST"> 
+        <head>
+            <link href="https://fonts.googleapis.com/css?family=EB+Garamond&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+            <style type="text/css">
+                body {
+                    background-image: url(static/images/ForPrediction.jpg);
+                    background-size: cover;
+                    background-attachment: fixed;
+                }
+            </style>
+
+        </head>
+        <body>
+        <h1>Please fill this form for prediction</h1>
+        <!-- Grid row -->
+        <p>Tell about the property</p>
+        <div class="form-row">
+        <!-- Grid column -->
+        <div class="col">
+            <!-- neighbourhood_cleansed -->
+            <select class="form-control form-control-sm mt-2" name="neighbourhood_cleansed">
+                <option value=""disabled selected>Select Neighbourhood Area</option>
+                {% for item in data_neighbourhood_cleansed%}
+                    <option value="{{item}}">{{item}}</option>
+                {% endfor%}
+            </select>
+        </div>
+        <!-- Grid column -->
+    
+        <!-- Grid column -->
+        <div class="col">
+            <!-- property_type -->
+            <select class="form-control form-control-sm mt-2" name="property_type">
+                <option value=""disabled selected>Select Property Type</option>
+                {% for item in data_property_type%}
+                    <option value="{{item}}">{{item}}</option>
+                {% endfor%}
+            </select>
+        </div>
+        <!-- Grid column -->
+    
+        <!-- Grid column -->
+        <div class="col">
+            <!-- room_type -->
+            <select class="form-control form-control-sm mt-2" name="room_type">
+                <option value=""disabled selected>Select Room Type</option>
+                {% for item in data_room_type%}
+                    <option value="{{item}}">{{item}}</option>
+                {% endfor%}
+            </select>
+        </div>
+        <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+        
+        <br>
+        <br>
+        <p>When will you lend the property?</p>
+        <!-- Grid row -->
+        <div class="form-row">
+            <!-- Grid column -->
+            <div class="col">
+            <!-- Month -->
+                <input type="number" name="month" max='12' min="1" placeholder="Month" class="form-control form-control-sm mt-2">
+            </div>
+            <!-- Grid column -->
+        
+            <!-- Grid column -->
+            <div class="col">
+            <!-- Default input -->
+                <!-- Weekend -->
+                <select class="form-control form-control-sm mt-2" name="Weekend">
+                    <option value=""disabled selected>Select Weekend or Weekdays</option>
+                    {% for item in data_Weekend%}
+                        <option value="{{item}}">{{item}}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+
+        <br>
+        <br>
+        <p>Is there any requirements of minimum nights?</p>
+        <!-- Grid row -->
+        <div class="form-row">
+            <!-- Grid column -->
+            <div class="col">
+                <!-- minimum_nights -->
+                <input type="number" name="minimum_nights" max='14' min="1" placeholder="the minimum nights allowed" class="form-control form-control-sm mt-2">
+            </div>
+            <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+
+        <br>
+        <br>
+        <p>How big is your property?</p>
+        <!-- Grid row -->
+        <div class="form-row">
+            <!-- Grid column -->
+            <div class="col">
+                <!-- guests_included -->
+                <input type="number" name="guests_included" max='15' min="1" placeholder="the number of guest allowed" class="form-control form-control-sm mt-2">
+            </div>
+            <!-- Grid column -->
+        
+            <!-- Grid column -->
+            <div class="col">
+                <!-- extra people -->
+                <input type="number" name="extra_people" max='14' min="0" placeholder="the number of extra people allowed" class="form-control form-control-sm mt-2">
+            </div>
+            <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+        
+        <br>
+        <br>
+        <p>Have you been registered as airbnb before? Type 0, if you are a new host</p>
+        <!-- Grid row -->
+        <div class="form-row">
+            <!-- Grid column -->
+            <div class="col">
+                <!-- host_listings_count -->
+                <input type="float" name="host_listings_count" max='500' min="1" placeholder="the number of host listing in airbnb" class="form-control form-control-sm mt-2">
+            </div>
+            <!-- Grid column -->
+        
+            <!-- Grid column -->
+            <div class="col">
+                <!-- number_of_reviews_ltm -->
+                <input type="float" name="number_of_reviews_ltm" max='156' min="0" placeholder="the number of reviews in the last twelve months(ltm)" class="form-control form-control-sm mt-2">
+            </div>
+            <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+
+        <br>
+        <br>
+        <p>Is there any extra fee? Type 0 if there is not.</p>
+        <!-- Grid row -->
+        <div class="form-row">
+            <!-- Grid column -->
+            <div class="col">
+                <!-- cleaning_fee -->
+                <input type="float" name="cleaning_fee" max='334' min="0" placeholder="the amount cleaning fee (if required)" class="form-control form-control-sm mt-2">
+            </div>
+            <!-- Grid column -->
+        
+            <!-- Grid column -->
+            <div class="col">
+                <!-- security_deposit -->
+                <input type="float" name="security_deposit" max='6000' min="0" placeholder="the amount of security deposit (if required)" class="form-control form-control-sm mt-2">
+            </div>
+            <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+
+        <br>
+        <br>
+        <p>These amenities can affect the price. Choose 1 if the amenity is available</p>
+        <p>Choose 0 if the amenity is not available</p>
+        <!-- Grid row -->
+        <div class="form-row">
+            <!-- Grid column -->
+            <div class="col">
+                <!-- pool -->
+                <select class="form-control form-control-sm mt-2" name="pool">
+                    <option value=""disabled selected>pool</option>
+                    {% for item in data_pool%}
+                        <option value="{{item}}">{{item}}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            <!-- Grid column -->
+        
+            <!-- Grid column -->
+            <div class="col">
+                <!-- gym -->
+                <select class="form-control form-control-sm mt-2" name="gym">
+                    <option value=""disabled selected>gym</option>
+                    {% for item in data_gym%}
+                        <option value="{{item}}">{{item}}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col">
+                <!-- elevator -->
+                <select class="form-control form-control-sm mt-2" name="elevator">
+                    <option value=""disabled selected>elevator</option>
+                    {% for item in data_elevator%}
+                        <option value="{{item}}">{{item}}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col">
+                <!-- kitchen -->
+                <select class="form-control form-control-sm mt-2" name="kitchen">
+                    <option value=""disabled selected>kitchen</option>
+                    {% for item in data_kitchen%}
+                        <option value="{{item}}">{{item}}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col">
+                <!-- hairdryer -->
+                <select class="form-control form-control-sm mt-2" name="hairdryer">
+                    <option value=""disabled selected>hairdryer</option>
+                    {% for item in data_hairdryer%}
+                        <option value="{{item}}">{{item}}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+
+        <br>
+        <!-- Grid row -->
+        <div class="form-row">
+            <!-- Grid column -->
+            <div class="col">
+                <!-- highchair -->
+                <select class="form-control form-control-sm mt-2" name="highchair">
+                    <option value=""disabled selected>highchair</option>
+                    {% for item in data_highchair%}
+                        <option value="{{item}}">{{item}}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            <!-- Grid column -->
+        
+            <!-- Grid column -->
+            <div class="col">
+                <!-- smokingallowed -->
+                <select class="form-control form-control-sm mt-2" name="smokingallowed">
+                    <option value=""disabled selected>smoking allowed</option>
+                    {% for item in data_smokingallowed%}
+                        <option value="{{item}}">{{item}}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col">
+                <!-- essentials -->
+                <select class="form-control form-control-sm mt-2" name="essentials">
+                    <option value=""disabled selected>essentials</option>
+                    {% for item in data_essentials%}
+                        <option value="{{item}}">{{item}}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col">
+                <!-- family -->
+                <select class="form-control form-control-sm mt-2" name="family">
+                    <option value=""disabled selected>family friendly</option>
+                    {% for item in data_family%}
+                        <option value="{{item}}">{{item}}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col">
+                <!-- freeparkingonpremises -->
+                <select class="form-control form-control-sm mt-2" name="freeparkingonpremises">
+                    <option value=""disabled selected>free parking on premises</option>
+                    {% for item in data_freeparkingonpremises%}
+                        <option value="{{item}}">{{item}}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+
+
+
+        </body> 
+
+        <button type="submit" class="btn btn-dark mt-4">
+            Click this button for prediction!
+        </button>
+
+
+
+    </form>
+<!-- Default column sizing form -->
+</body>
+
+</html>
+{% endblock body %}

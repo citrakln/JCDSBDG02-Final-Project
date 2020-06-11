@@ -2,12 +2,15 @@
 ## Airbnb Singapore Price Prediction and suggestion for a new host
 ### by : Citra Kirana Lestari Nainggolan
 #### Dataset :  Kaggle [Airbnb Singapore listing](https://www.kaggle.com/sarvasaga/airbnb-singapore-listing?select=Airbnb+listing.csv.)
-It consists of 2 csv file :
+It consists of two csv file :
 - Airbnb listing.csv
 - Review for Airbnb listings.csv
 
 Dataset Airbnb listing.csv preview :
+![](github-image/1%20Preview%20Airbnb%20listing%20csv.png)
 
+Dataset Airbnb listing.csv preview :
+![](github-image/2%20Preview%20Review%20for%20Airbnb%20listing%20csv.png)
 
 #### Background
 Singapore is one of the most popular destination in South East Asian. With its history and culture, Singapore’s varied charms are bound to enchant visitors to this small island. Singapore packs a surprisingly massive number of attractions: parks, world-class zoos, hotels, historical structures, and deliciously cheap eats, all in a small land area.Singapore attracted approximately 18.5 million visitors in 2018, according to Singapore Tourism Board. This number increased by 6.2 percent from 2017, which likely is expected to keep increasing.

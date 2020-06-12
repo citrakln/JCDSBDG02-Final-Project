@@ -3,8 +3,8 @@
 ### by : Citra Kirana Lestari Nainggolan
 #### Dataset :  Kaggle [Airbnb Singapore listing](https://www.kaggle.com/sarvasaga/airbnb-singapore-listing?select=Airbnb+listing.csv.)
 It consists of two csv file :
-- Airbnb listing.csv
-- Review for Airbnb listings.csv
+- Airbnb listing.csv (Total 8,293 rows and 98 columns)
+- Review for Airbnb listings.csv (Total 100,918 rows and 6 columns)
 
 Dataset Airbnb listing.csv preview :
 ![](github-image/1%20Preview%20Airbnb%20listing%20csv.png)
@@ -25,5 +25,9 @@ This project is made to :
 - determine the price of a listing for a new Airbnb host in Singapore.
 - Make a suggestion on how to be a top Airbnb host based on data visualization and NLP on guest review and listing title
 
+### 1.  Airbnb Price Prediction
+### 2.  How to be a top Airbnb host
+The suggestion is made based on data visualization and TfIdfCountVectorizer
+![](github-image/3%20Suggestion.jpg)
 
 
